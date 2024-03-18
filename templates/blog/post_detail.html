@@ -1,0 +1,23 @@
+
+<body>
+
+<h1>{{post.title}}</h1>
+
+<h2>{{post.content}}</h2>
+ author: <a href='{% url "post_by_author" post.author.pk  %}'> {{post.author}} </a>
+
+<br>
+{% if post.published_recently %}
+published recently
+{% endif %}
+<br>
+
+comments:<br>
+{% for comment in post.comments.all %}
+<h4>{{comment}}</h4>
+{% endfor %}
+
+
+</body>
+
+
